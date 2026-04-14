@@ -424,7 +424,7 @@
             { id: "sprout", emoji: "🌱", name: "새싹의 손", grade: "일반", desc: "10터치당 +1 자동 추가", condition: "총합 10번 달성" },
             { id: "lightning", emoji: "⚡", name: "번개손", grade: "일반", desc: "피버 발동 확률 +2%", condition: "총합 100번 달성" },
             { id: "fire", emoji: "🔥", name: "불꽃 의지", grade: "희귀", desc: "피버 지속시간 +2초", condition: "총합 1,000번 달성" },
-            { id: "explorer", emoji: "🗺️", name: "대학 탐험가", grade: "희귀", desc: "대학 변경 시 첫 10번 2배", condition: "모든 대학교 1번씩 터치" },
+            { id: "explorer", emoji: "🗺️", name: "대학 탐험가", grade: "희귀", desc: "대학 변경 시 첫 10번 2배", condition: "5개 대학교 방문" },
             { id: "focus", emoji: "💫", name: "집중력", grade: "희귀", desc: "피버 배수 x3으로 증가", condition: "총합 10,000번 달성" },
             { id: "robot", emoji: "🤖", name: "자동손", grade: "희귀", desc: "5초마다 자동 터치", condition: "한 대학교 10,000번 달성" },
             { id: "crown", emoji: "👑", name: "터치의 신", grade: "전설", desc: "피버 발동 확률 +5%", condition: "총합 100,000번 달성" },
@@ -821,7 +821,7 @@
                 if (item.id === "galaxy" && totalCount >= 10000000) unlocked = true;
                 if (item.id === "legend" && totalCount >= 100000000) unlocked = true;
                 if (item.id === "robot" && Object.values(uniCountsLocal).some(v => v >= 10000)) unlocked = true;
-                if (item.id === "explorer" && ALL_UNIS.every(u => visitedUnis.has(u))) unlocked = true;
+                if (item.id === "explorer" && visitedUnis.size >= 5) unlocked = true;
 
                 if (unlocked) {
                     myItems.push(item);
