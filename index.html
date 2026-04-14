@@ -667,6 +667,7 @@
             if (stats.autoTouch) startAutoTouch();
 
             updateTitleBadge();
+            checkItemUnlock();
             renderInventory();
             loadRanking();
         }
@@ -684,6 +685,8 @@
                 imgEl.style.display = "none";
                 emojiEl.style.display = "block";
             }
+            const stats = getItemStats();
+            if (stats.explorerBonus) explorerBonusCount = 10;
         });
 
         async function handleTouch() {
