@@ -167,6 +167,8 @@ async def me(current_user=Depends(get_current_user)):
 
 @app.post("/touch")
 async def touch(data: TouchData, current_user=Depends(get_current_user)):
+    if data.point < 1 or data.point > 5:
+        raise HTTPException(status_code=400, detail="잘못된 요청")
     async with aiosqlite.connect(DB_PATH) as db:
         await db.execute(
             """
